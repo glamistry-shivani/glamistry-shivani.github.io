@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Glamistry Shivani — Pre-Bridal Package Planner</title>
+
+<style>
+/* -----------------------------------------
+   GOLD–BLACK LUXURY THEME
+------------------------------------------ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  margin: 0;
+  background: #000;
+  padding: 20px;
+  color: #f2f2f2;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  background: #111;
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+  border: 1px solid #2b2b2b;
+}
+
+/* Rose-gold / gold gradient headings */
+h1, h2, .visit-header {
+  background: linear-gradient(90deg, #f7c6c7, #f3e6c0, #f7c6c7);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+h1 {
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 20px;
+  margin: 0 0 8px 0;
+}
+
+p {
+  margin: 0;
+}
+
+/* Gold separator */
+.divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right, #333, #caa447, #333);
+  margin: 24px 0;
+  opacity: 0.7;
+}
+
+/* Cards */
+.card {
+  background: #161616;
+  padding: 18px;
+  border-radius: 12px;
+  border: 1px solid #3b3b3b;
+  margin-bottom: 22px;
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 16px;
+  color: #f3e6c0;
+}
+
+/* Summary + visits */
+.summary-box {
+  background: #141414;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #6d5300;
+  box-shadow: inset 0 0 10px rgba(255,215,0,0.18);
+  margin-bottom: 18px;
+}
+
+.visit-card {
+  background: #0f0f0f;
+  padding: 14px;
+  border-radius: 10px;
+  border: 1px solid #222;
+  margin-bottom: 15px;
+}
+
+.visit-header {
+  font-weight: 700;
+  font-size: 15px;
+  margin-bottom: 8px;
+}
+
+.visit-card ul {
+  padding-left: 20px;
+  margin: 0;
+}
+
+.visit-card li {
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+/* Grid for services */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
+  gap: 14px;
+}
+
+label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e6c98f;
+  margin-bottom: 4px;
+  display: block;
+}
+
+select {
+  width: 100%;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #644f12;
+  background: #1b1b1b;
+  color: #f3eacb;
+  font-size: 14px;
+}
+
+select option {
+  background:#111;
+  color:#f3eacb;
+}
+
+/* Package toggle pills */
+.package-toggle {
+  display: inline-flex;
+  background: #111;
+  border-radius: 999px;
+  border: 1px solid #6b571a;
+  padding: 3px;
+  gap: 4px;
+}
+
+.pkg-pill {
+  border: none;
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  background: transparent;
+  color: #e6c98f;
+  min-width: 70px;
+}
+
+.pkg-pill.active {
+  background: linear-gradient(90deg, #f3e6c0, #caa447);
+  color: #111;
+}
+
+/* Buttons */
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+button.main-btn {
+  flex: 1 1 200px;
+  padding: 11px;
+  background: linear-gradient(to right, #e6c068, #caa447, #e6c068);
+  border: none;
+  color: #000;
+  border-radius: 30px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+button.main-btn:hover {
+  filter: brightness(1.12);
+}
+
+button.secondary-btn {
+  flex: 1 1 200px;
+  padding: 11px;
+  background: #1d1d1d;
+  border: 1px solid #444;
+  color: #f2f2f2;
+  border-radius: 30px;
+  font-size: 13px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+button.secondary-btn:hover {
+  border-color: #e6c068;
+}
+
+/* Special colored buttons */
+.btn-whatsapp {
+  background: #25D366;
+  color: #000;
+  border: none;
+}
+
+.btn-whatsapp:hover {
+  filter: brightness(1.15);
+}
+
+.btn-copy {
+  border-color: #555;
+}
+
+/* Floating Instagram button */
+.insta-floating {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 46px;
+  height: 46px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, #f7c6c7, #e6a14f, #bf3e7a);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+  z-index: 999;
+  border: 1px solid #f3e6c0;
+}
+
+.insta-floating img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Hidden utility */
+.hidden {
+  display: none !important;
+}
+
+/* Fade-in animation */
+.fade-in {
+  animation: fadeIn 0.35s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* -----------------------------------------
+   RESPONSIVE
+------------------------------------------ */
+@media (max-width: 600px) {
+  body { padding: 12px; }
+  .container { padding: 18px; }
+  h1 { font-size: 24px; }
+
+  .btn-row {
+    flex-direction: column;
+  }
+
+  .insta-floating {
+    right: 14px;
+    bottom: 14px;
+    width: 42px;
+    height: 42px;
+  }
+}
+
+/* -----------------------------------------
+   PRINT (PDF LAYOUT)
+------------------------------------------ */
+@media print {
+  body {
+    background: #fff;
+    color: #000;
+    padding: 0;
+  }
+
+  .container {
+    box-shadow: none;
+    border: none;
+    max-width: 100%;
+    border-radius: 0;
+    padding: 10px 20px;
+  }
+
+  .insta-floating,
+  .btn-row,
+  .package-toggle,
+  .card:nth-of-type(1), /* hide package selection card? Optional: comment this line out if you want it in PDF */
+  .card:nth-of-type(2)  /* hide brand selection card? Optional */
+  {
+    display: none !important;
+  }
+
+  h1, h2, .visit-header {
+    -webkit-background-clip: unset;
+    background-clip: unset;
+    color: #000 !important;
+  }
+
+  .summary-box, .card, .visit-card {
+    border: 1px solid #888 !important;
+    background: #fff !important;
+    box-shadow: none !important;
+    color: #000 !important;
+  }
+
+  li {
+    font-size: 12px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>Pre-Bridal Package Planner</h1>
+
+  <!-- Package selection with gold pill toggle -->
+  <div class="card">
+    <h3>1. Choose Package</h3>
+    <div class="package-toggle" id="packageToggle">
+      <button class="pkg-pill active" data-pkg="silver">Silver</button>
+      <button class="pkg-pill" data-pkg="gold">Gold</button>
+      <button class="pkg-pill" data-pkg="platinum">Platinum</button>
+    </div>
+  </div>
+
+  <!-- Brand selectors -->
+  <div class="card">
+    <h3>2. Select Brand for Each Service</h3>
+
+    <div class="grid">
+      <div>
+        <label>Facial</label>
+        <select id="facial"></select>
+      </div>
+      <div>
+        <label>Bleach</label>
+        <select id="bleach"></select>
+      </div>
+      <div>
+        <label>Wax</label>
+        <select id="wax"></select>
+      </div>
+      <div>
+        <label>Mani-Pedi</label>
+        <select id="mani"></select>
+      </div>
+      <div>
+        <label>Body Polish</label>
+        <select id="polish"></select>
+      </div>
+      <div id="peel-container">
+        <label>Chemical Peel</label>
+        <select id="peel"></select>
+      </div>
+      <div>
+        <label>Hair Spa</label>
+        <select id="hairspa"></select>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Action buttons -->
+  <div class="btn-row">
+    <button class="main-btn" onclick="generatePackage()">Generate Package</button>
+    <button class="secondary-btn" onclick="window.print()">Download PDF</button>
+  </div>
+
+  <div class="btn-row">
+    <button class="secondary-btn btn-copy" onclick="copyPlan()">Copy Plan</button>
+    <button class="secondary-btn btn-whatsapp" onclick="shareOnWhatsApp()">Share on WhatsApp</button>
+  </div>
+
+  <div id="result"></div>
+
+</div>
+
+<!-- Floating Instagram button -->
+<a class="insta-floating"
+   href="https://www.instagram.com/glamistry.shivani"
+   target="_blank"
+   title="Visit Instagram">
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+</a>
+
+<script>
+// ------------------------------------------------------------
+// DATA: SERVICE OPTIONS
+// ------------------------------------------------------------
+const serviceOptions = {
+  facial: [
+    { package: "silver", brand: "Lotus" },
+    { package: "silver", brand: "Sara" },
+    { package: "gold", brand: "FYC Professional" },
+    { package: "gold", brand: "Blossom Kocchar" },
+    { package: "platinum", brand: "Ozone" },
+    { package: "platinum", brand: "O3+ Professional" }
+  ],
+  bleach: [
+    { package: "silver", brand: "Nature's Bleach" },
+    { package: "silver", brand: "Oxylife Bleach" },
+    { package: "gold", brand: "VLCC Bleach" },
+    { package: "gold", brand: "Ozone Bleach" },
+    { package: "platinum", brand: "O3+ Professional" },
+    { package: "platinum", brand: "Cherryl's" }
+  ],
+  wax: [
+    { package: "silver", brand: "Normal Wax" },
+    { package: "gold", brand: "Rica Wax" },
+    { package: "platinum", brand: "Rica Wax" }
+  ],
+  mani: [
+    { package: "silver", brand: "Basic Mani-Pedi" },
+    { package: "gold", brand: "Zara Mani-Pedi" },
+    { package: "platinum", brand: "FYC Luxury Mani-Pedi" }
+  ],
+  polish: [
+    { package: "silver", brand: "Basic Body Polish" },
+    { package: "gold", brand: "Aroma Gold Polish" },
+    { package: "platinum", brand: "FYC Professional" }
+  ],
+  peel: [
+    { package: "platinum", brand: "Glycolic AHA Peel" }
+  ],
+  hairspa: [
+    { package: "silver", brand: "Hilary Rhoda Hair Spa" },
+    { package: "gold", brand: "L'Oreal Hair Spa" },
+    { package: "platinum", brand: "Wella Spa" }
+  ]
+};
+
+// PACKAGE PRICES
+const packagePrices = {
+  silver: 12000,
+  gold: 18000,
+  platinum: 22000
+};
+
+// CURRENT PACKAGE (controlled by pill toggle)
+let currentPackage = "silver";
+
+// ------------------------------------------------------------
+// PACKAGE TOGGLE LOGIC
+// ------------------------------------------------------------
+document.querySelectorAll(".pkg-pill").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".pkg-pill").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    currentPackage = btn.getAttribute("data-pkg");
+    updateDropdowns();
+  });
+});
+
+// ------------------------------------------------------------
+// UPDATE DROPDOWNS + HIDE PEEL
+// ------------------------------------------------------------
+function updateDropdowns() {
+  const pkg = currentPackage;
+
+  // Hide/show Chemical Peel for non-platinum
+  document.getElementById("peel-container").classList.toggle("hidden", pkg !== "platinum");
+
+  Object.keys(serviceOptions).forEach(service => {
+    const select = document.getElementById(service);
+    if (!select) return;
+
+    select.innerHTML = "";
+    serviceOptions[service]
+      .filter(x => x.package === pkg)
+      .forEach(x => {
+        const opt = document.createElement("option");
+        opt.value = x.brand;
+        opt.textContent = x.brand;
+        select.appendChild(opt);
+      });
+  });
+}
+
+// ------------------------------------------------------------
+// VISITS (ALWAYS EXPANDED)
+// ------------------------------------------------------------
+const visits = [
+  { id:1, label:"Body Profiling", tasks:[
+    "Body profiling & skin analysis",
+    "Hair growth & texture analysis"
+  ]},
+  { id:2, label:"Reset + Grooming", tasks:[
+    "Wax [Wax]",
+    "Facial [Facial]",
+    "Mani-Pedi [Mani]",
+    "Body Polish [Polish]",
+    "Bleach [Bleach]"
+  ]},
+  { id:3, label:"Correction Session", tasks:[
+    "Thread Work",
+    "Peel [Peel]",
+    "Hair Spa [HairSpa]"
+  ]},
+  { id:4, label:"Glow Building", tasks:[
+    "Thread Work",
+    "Wax [Wax]",
+    "Facial [Facial]",
+    "Bleach [Bleach]",
+    "Mani-Pedi [Mani]",
+    "Body Polish [Polish]"
+  ]},
+  { id:5, label:"Correction Round 2", tasks:[
+    "Peel [Peel]",
+    "Hair Spa [HairSpa]"
+  ]},
+  { id:6, label:"Final Bridal Session", tasks:[
+    "Thread Work",
+    "Wax [Wax]",
+    "Facial [Facial]",
+    "Bleach [Bleach]",
+    "Mani-Pedi [Mani]",
+    "Body Polish [Polish]",
+    "Hair Spa [HairSpa]"
+  ]}
+];
+
+// ------------------------------------------------------------
+// BRAND REPLACEMENT WITH "NOT INCLUDED" FOR PEEL
+// ------------------------------------------------------------
+function applyBrandNames(task) {
+  const pkg = currentPackage;
+
+  const map = {
+    "[Facial]": document.getElementById("facial").value,
+    "[Bleach]": document.getElementById("bleach").value,
+    "[Wax]": document.getElementById("wax").value,
+    "[Mani]": document.getElementById("mani").value,
+    "[Polish]": document.getElementById("polish").value,
+    "[Peel]": pkg === "platinum"
+      ? document.getElementById("peel").value
+      : "NOT INCLUDED IN THIS PACKAGE",
+    "[HairSpa]": document.getElementById("hairspa").value
+  };
+
+  for (const tag in map) {
+    task = task.replace(tag, `— ${map[tag]}`);
+  }
+  return task;
+}
+
+// ------------------------------------------------------------
+// GENERATE OUTPUT
+// ------------------------------------------------------------
+function generatePackage() {
+  const pkg = currentPackage;
+  const name = pkg.charAt(0).toUpperCase() + pkg.slice(1);
+  const price = packagePrices[pkg];
+
+  let html = `
+    <div class="summary-box">
+      <h2>${name} Package</h2>
+      <p><strong>Price:</strong> ₹${price.toLocaleString()}</p>
+    </div>
+  `;
+
+  visits.forEach(v => {
+    html += `<div class="visit-card">
+      <div class="visit-header">Visit ${v.id} — ${v.label}</div>
+      <ul>`;
+    v.tasks.forEach(t => {
+      html += `<li>${applyBrandNames(t)}</li>`;
+    });
+    html += `</ul></div>`;
+  });
+
+  const resultEl = document.getElementById("result");
+  resultEl.classList.remove("fade-in");
+  resultEl.innerHTML = html;
+  // Force reflow to restart animation
+  void resultEl.offsetWidth;
+  resultEl.classList.add("fade-in");
+}
+
+// ------------------------------------------------------------
+// COPY PLAN TO CLIPBOARD
+// ------------------------------------------------------------
+function copyPlan() {
+  const text = document.getElementById("result").innerText.trim();
+  if (!text) {
+    alert("Please generate the package first.");
+    return;
+  }
+  navigator.clipboard.writeText(text)
+    .then(() => alert("Plan copied to clipboard."))
+    .catch(() => alert("Unable to copy. Your browser may not support this."));
+}
+
+// ------------------------------------------------------------
+// WHATSAPP SHARE (SHARES FINAL TEXT PLAN)
+// ------------------------------------------------------------
+function shareOnWhatsApp() {
+  const text = document.getElementById("result").innerText.trim();
+  if (!text) {
+    alert("Please generate the package first.");
+    return;
+  }
+  const url = "https://wa.me/?text=" + encodeURIComponent(text);
+  window.open(url, "_blank");
+}
+
+// Init on load
+updateDropdowns();
+</script>
+
+</body>
+</html>
